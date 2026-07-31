@@ -487,10 +487,12 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;position:relative;ov
       <a href="#capabilities" data-i18n="nav.solutions">Lösungen</a>
       <a href="#process" data-i18n="nav.how">So funktioniert's</a>
       <a href="#why" data-i18n="nav.why">Warum wir</a>
+      <a href="#pricing">Preise</a>
     </nav>
     <div class="nav-cta">
       <div class="lang-switch" role="group" aria-label="Language / Sprache"><button type="button" class="lang-btn" data-lang="de" aria-pressed="true">DE</button><span class="lang-sep" aria-hidden="true">/</span><button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button></div>
-      <a href="#consult" class="btn btn-primary btn-sm" data-magnetic data-i18n="cta.start">Loslegen <span class="arrow">→</span></a>
+      <a href="https://app.infinitynous.com/login" class="nav-login app-cta">Anmelden</a>
+      <a href="#pricing" class="btn btn-primary btn-sm" data-magnetic data-i18n="cta.start">Loslegen <span class="arrow">→</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
   </div>
@@ -503,7 +505,8 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;position:relative;ov
     <a href="#capabilities" class="mlink" data-i18n="mlink.solutions">Lösungen <span>02</span></a>
     <a href="#process" class="mlink" data-i18n="mlink.how">So funktioniert's <span>03</span></a>
     <a href="#why" class="mlink" data-i18n="mlink.why">Warum wir <span>04</span></a>
-    <a href="#consult" class="btn btn-primary btn-lg" data-close data-i18n="cta.start">Loslegen <span class="arrow">→</span></a>
+    <a href="#pricing" class="mlink">Preise <span>05</span></a>
+    <a href="#pricing" class="btn btn-primary btn-lg" data-close data-i18n="cta.start">Loslegen <span class="arrow">→</span></a>
     <div class="mlang" role="group" aria-label="Language / Sprache"><button type="button" class="lang-btn" data-lang="de" aria-pressed="true">DE</button><span class="lang-sep" aria-hidden="true">/</span><button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button></div>
   </div>
 </div>
@@ -519,7 +522,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;position:relative;ov
     <h1 class="reveal" data-i18n="hero.h1">Ihr Geschäftsbetrieb auf einer <span class="grad">intelligenten Plattform.</span></h1>
     <p class="hero-sub reveal" data-i18n="hero.sub">Infinity Nous vereint Rechnungen, Belege, Dokumente und Finanzprozesse in einer modernen Plattform — mit Automatisierung, die die wiederkehrende Verwaltung übernimmt, damit sich Ihr Team aufs Geschäft konzentrieren kann.</p>
     <div class="hero-actions reveal">
-      <a href="#consult" class="btn btn-primary btn-lg" data-magnetic data-i18n="cta.start">Loslegen <span class="arrow">→</span></a>
+      <a href="#pricing" class="btn btn-primary btn-lg" data-magnetic data-i18n="cta.start">Loslegen <span class="arrow">→</span></a>
       <a href="#process" class="btn btn-ghost btn-lg" data-magnetic data-i18n="hero.see">So funktioniert's <span class="arrow">→</span></a>
     </div>
     <div class="hero-cred reveal">
@@ -905,6 +908,83 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;position:relative;ov
   </div>
 </section>
 
+<style>
+.pricing{position:relative}
+.nav-login{color:#e7e9ee;text-decoration:none;font-size:14px;font-weight:500;margin-right:4px;opacity:.9;transition:opacity .2s,color .2s}
+.nav-login:hover{opacity:1;color:var(--signal,#FEE867)}
+.price-head{text-align:center;max-width:720px;margin:0 auto 54px}
+.price-head h2{margin:14px 0 12px}
+.price-head p{color:#b9bdc7;font-size:16px;line-height:1.6}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1080px;margin:0 auto;align-items:stretch}
+@media(max-width:860px){.price-grid{grid-template-columns:1fr;max-width:460px}}
+.price-card{position:relative;display:flex;flex-direction:column;padding:34px 28px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.price-card:hover{transform:translateY(-4px);border-color:rgba(254,232,103,.35)}
+.price-card.feature{border-color:var(--signal,#FEE867);background:linear-gradient(180deg,rgba(254,232,103,.09),rgba(255,255,255,.03));box-shadow:0 22px 60px -30px rgba(254,232,103,.55)}
+.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--signal,#FEE867);color:#07080B;font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 14px;border-radius:999px;text-transform:uppercase;white-space:nowrap}
+.price-name{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal,#FEE867);font-weight:600}
+.price-amount{display:flex;align-items:baseline;gap:7px;margin:16px 0 4px}
+.price-amount b{font-size:46px;font-weight:700;line-height:1;color:#fff}
+.price-amount span{color:#b9bdc7;font-size:15px}
+.price-tax{color:#9aa0ab;font-size:12.5px;margin-bottom:24px}
+.price-feats{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:12px;flex:1}
+.price-feats li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.45;color:#e7e9ee}
+.price-feats li svg{flex:none;margin-top:2px}
+.price-card .btn{width:100%;justify-content:center}
+.price-foot{text-align:center;margin-top:36px;color:#9aa0ab;font-size:14px}
+.price-foot a{color:var(--signal,#FEE867);text-decoration:none;border-bottom:1px solid rgba(254,232,103,.4)}
+</style>
+<section id="pricing" class="pricing sec-pad" aria-label="Preise">
+  <div class="wrap">
+    <div class="price-head">
+      <span class="eyebrow">PREISE</span>
+      <h2>Einfache Preise. <span class="grad">Sofort loslegen.</span></h2>
+      <p>Wählen Sie Ihren Plan und starten Sie direkt in der App. Alle Preise inkl. MwSt, monatlich kündbar.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-name">Starter</div>
+        <div class="price-amount"><b>19 €</b><span>/ Monat</span></div>
+        <div class="price-tax">inkl. MwSt · monatlich kündbar</div>
+        <ul class="price-feats">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>100 Rechnungen / Monat</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>KI-Erkennung (GPT-4o)</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Gmail &amp; Google Drive Integration</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SevDesk-Sync</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prioritäts-KI · 1 Benutzer</span></li>
+        </ul>
+        <a href="https://app.infinitynous.com/login" class="btn btn-ghost btn-lg app-cta" data-plan="starter" data-magnetic>Jetzt starten <span class="arrow">→</span></a>
+      </div>
+      <div class="price-card feature">
+        <div class="price-badge">Beliebt</div>
+        <div class="price-name">Pro</div>
+        <div class="price-amount"><b>49 €</b><span>/ Monat</span></div>
+        <div class="price-tax">inkl. MwSt · monatlich kündbar</div>
+        <ul class="price-feats">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>500 Rechnungen / Monat</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Alles aus Starter</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>DATEV EXTF CSV-Export</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sofort-Benachrichtigungen</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>2 Benutzer</span></li>
+        </ul>
+        <a href="https://app.infinitynous.com/login" class="btn btn-primary btn-lg app-cta" data-plan="pro" data-magnetic>Jetzt starten <span class="arrow">→</span></a>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Business</div>
+        <div class="price-amount"><b>99 €</b><span>/ Monat</span></div>
+        <div class="price-tax">inkl. MwSt · monatlich kündbar</div>
+        <ul class="price-feats">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unbegrenzte Rechnungen</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unbegrenzte Benutzer</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Alles aus Pro</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#FEE867" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prioritäts-Support</span></li>
+        </ul>
+        <a href="https://app.infinitynous.com/login" class="btn btn-ghost btn-lg app-cta" data-plan="business" data-magnetic>Jetzt starten <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <p class="price-foot">Lieber persönlich? <a href="#consult">Kostenlose Beratung buchen →</a></p>
+  </div>
+</section>
+
 <!-- ================= FINAL CTA ================= -->
 <section class="final" data-i18n-aria="aria.getstarted" aria-label="Loslegen">
   <canvas id="final-canvas" aria-hidden="true"></canvas>
@@ -913,7 +993,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;position:relative;ov
     <h2 class="reveal" data-i18n="final.h2">Weniger Zeit für Verwaltung.<br/><span class="grad">Führen Sie Ihr Geschäft mit Klarheit.</span></h2>
     <p class="reveal" data-i18n="final.p">Bringen Sie Rechnungen, Belege, Dokumente und Finanzprozesse auf eine intelligente Plattform — und überlassen Sie die wiederkehrenden Teile der Automatisierung.</p>
     <div class="final-actions reveal">
-      <a href="#consult" class="btn btn-primary btn-lg" data-magnetic data-i18n="cta.start">Loslegen <span class="arrow">→</span></a>
+      <a href="#pricing" class="btn btn-primary btn-lg" data-magnetic data-i18n="cta.start">Loslegen <span class="arrow">→</span></a>
       <span class="final-sub" data-i18n="final.sub">Eine Plattform. Weniger Verwaltung. Mehr Kontrolle.</span>
     </div>
   </div>
@@ -1024,6 +1104,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;position:relative;ov
         <a href="#capabilities" data-i18n="nav.solutions">Lösungen</a>
         <a href="#process" data-i18n="nav.how">So funktioniert's</a>
         <a href="#why" data-i18n="nav.why">Warum wir</a>
+      <a href="#pricing">Preise</a>
       </div>
       <div class="foot-col">
         <h4 data-i18n="foot.connect">Kontakt</h4>
@@ -1369,6 +1450,25 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px;position:relative;ov
   var gapCv = document.getElementById("gap-canvas");
   if(gapCv) NeuralField(gapCv, {maxNodes: 30, linkDist:96, density:0.0004});
 
+})();
+</script>
+<script>
+(function(){
+  var APP="https://app.infinitynous.com/login";
+  var ref=new URLSearchParams(location.search).get("ref")||"";
+  document.querySelectorAll("a.app-cta").forEach(function(a){
+    var plan=a.getAttribute("data-plan")||"";
+    try{
+      var u=new URL(APP);
+      if(plan)u.searchParams.set("plan",plan);
+      if(ref)u.searchParams.set("ref",ref);
+      a.setAttribute("href",u.toString());
+    }catch(e){}
+  });
+  if(location.pathname.replace(/\/+$/,"")==="/pricing"){
+    var el=document.getElementById("pricing");
+    if(el)setTimeout(function(){el.scrollIntoView();},60);
+  }
 })();
 </script>
 </body>
