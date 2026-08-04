@@ -1,5 +1,10 @@
 {
   "rewrites": [
-    { "source": "/pricing", "destination": "/index.html" }
+    { "source": "/pricing", "destination": "/index.html" },
+    { "source": "/wissen", "destination": "https://automatic-leadsystem-production.up.railway.app/api/v1/seo/site/1" },
+    { "source": "/wissen/handwerk", "destination": "https://automatic-leadsystem-production.up.railway.app/api/v1/seo/site/1" },
+    { "source": "/wissen/handwerk/:path*", "destination": "https://automatic-leadsystem-production.up.railway.app/api/v1/seo/site/1/:path*" },
+    { "source": "/wissen/selbststaendig", "destination": "https://automatic-leadsystem-production.up.railway.app/api/v1/seo/site/2" },
+    { "source": "/wissen/selbststaendig/:path*", "destination": "https://automatic-leadsystem-production.up.railway.app/api/v1/seo/site/2/:path*" }
   ]
 }
